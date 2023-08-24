@@ -6,10 +6,9 @@ import sys
 
 
 if __name__ == "__main__":
-    """Get api"""
+    """Get API"""
     todos_api = requests.get(
-        'https://jsonplaceholder.typicode.com/todos/'
-    )
+        'https://jsonplaceholder.typicode.com/todos/')
     user_api = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
     todo_data = todos_api.text
@@ -22,7 +21,7 @@ if __name__ == "__main__":
         if todo['userId'] == user['id']:
             if todo['completed']:
                 completed.append(todo)
-                all_todos += 1
+            all_todos += 1
     print(
         'Employee {} is done with tasks({}/{}):'
         .format(user['name'], len(completed), all_todos), file=sys.stdout)
